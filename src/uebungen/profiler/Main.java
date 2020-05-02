@@ -5,8 +5,6 @@ import de.htwberlin.fiw.profiler.Profiler;
 
 public class Main extends ProfiledClass {
 
-    //muss noch angepasst werden für singleList
-
     public void run() {
         long ergebnis = 1;
         for (long i = 1; i < 1000000000; i++) {
