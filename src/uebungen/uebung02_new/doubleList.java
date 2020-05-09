@@ -18,14 +18,30 @@ public class doubleList {
 
     //Erzeugt eine leere Liste
     public doubleList() {
-        listElement firstEl = null;
-        listElement lastEl = null;
+        listElement firstEl;
+        listElement lastEl;
     }
 
     //Liefert das erste Element der Liste
     public listElement getFirstEl() { return this.firstEl; }
-    public listElement getLastEl() { return this.get(size()-1);}
 
+    //Nicht so richtig hilfreich, weil lastEl nicht gespeichert wird, sondern immer wieder
+    //neu berechnet werden muss durch vollständiges Durchlaufen der Liste
+    
+    public listElement getLastElement () {
+
+            listElement aktElement = firstEl; //beim Startelement beginnen
+
+            //Die Liste durchlaufen bis das letzte Element erreicht ist
+            //Das letzte Element der Liste ist dasjenige ohne Nachfolger, also das mit einem Null-Pointer
+
+            while(aktElement.hasNext()) {
+
+                aktElement = aktElement.next; //Bei jeder Wiederholung wird das nachfolgende Element geprüft
+            }
+
+            return aktElement;
+        }
 
     //Fügt das übergebene Element ans Ende der Liste an
     public void append(listElement element) {
@@ -38,8 +54,7 @@ public class doubleList {
         }
 
         else {
-
-            listElement lastEl = getLastEl();
+            lastEl = getLastElement();
             lastEl.next = element;
             element.prev = lastEl;
         }
@@ -49,6 +64,7 @@ public class doubleList {
     public listElement get(int position) {
 
         int center = this.size() / 2 ;
+
         listElement aktEl = this.firstEl;
 
         //Wenn die Einfuegeposition in der linken Haelfte des Feldes liegt = kleiner oder gleich die Mitte ist
@@ -87,7 +103,7 @@ public class doubleList {
     public void prepend(listElement element) {
 
         if(firstEl == null) {
-            firstEl = new listElement(element);
+            firstEl = element;
         }
 
         else {
@@ -139,7 +155,6 @@ public class doubleList {
         int size = 0;
 
         //Wenn die Liste leer ist, gib 0 zurück
-
         if(this.firstEl == null) { return size; }
 
         //andernfalls: durchlaufe die Liste, solange das aktuelle Element einen Nachfolger hat und erhoehe den Counter
@@ -153,10 +168,9 @@ public class doubleList {
 
                 aktEl = aktEl.next;
                 size++;
-            }
+            }}
 
-            return size; }
-
+        return size;
         }
 
 

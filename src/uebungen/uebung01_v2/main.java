@@ -29,7 +29,7 @@ public class main extends ProfiledClass {
         myList.print();
         myList.printReverse(MAX);
 
-        myList.prepend(new listElement(1));
+        //myList.prepend(new listElement(1));
 
        myList.print();
         myList.printReverse(MAX);

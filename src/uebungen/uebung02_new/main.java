@@ -27,8 +27,9 @@ public class main extends ProfiledClass {
 
         }
 
-        System.out.println(myList.size());
+        //System.out.println("Anzahl der Elemente: " + myList.size());
         myList.print();
+        //System.out.println("++++++++++");
         myList.printReverse();
     }
 
