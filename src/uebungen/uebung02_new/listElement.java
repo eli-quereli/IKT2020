@@ -1,4 +1,4 @@
-package uebungen.uebung02;
+package uebungen.uebung02_new;
 
 //Diese Klasse instanziiert die Listenelement als Objekte
 
@@ -19,25 +19,28 @@ package uebungen.uebung02;
 public class listElement {
 
     public Object obj;
-    public listElement prevElement, nextElement;
+    public listElement prev;
+    public listElement next;
 
     public listElement(Object obj) {
         this.obj = obj;
-        this.prevElement = null;
-        this.nextElement = null;
+        this.prev = null;
+        this.next = null;
     }
 
-    public void setNextElement (listElement nextElement){  this.nextElement = nextElement;  }
+    //public void setNextElement (listElement nextElement){  this.nextElement = nextElement;  }
 
-    public void setPrevElement (listElement prevElement) { this.prevElement = prevElement; }
+    //public void setPrevElement (listElement prevElement) { this.prevElement = prevElement; }
 
-    public listElement getNextElement() { return nextElement; }
+    //public listElement getNextElement() { return nextElement; }
 
-    public listElement getprevElement() { return prevElement; }
+    //public listElement getPrevElement() { return prevElement; }
 
     public Object getObject() {
         return obj;
     }
+
+    public boolean hasNext() { return this.next != null; }
 
     @Override
     public boolean equals(Object other) {
