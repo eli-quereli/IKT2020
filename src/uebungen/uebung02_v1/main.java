@@ -1,4 +1,4 @@
-package uebungen.uebung02_new;
+package uebungen.uebung02_v1;
 
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
@@ -12,7 +12,7 @@ public class main extends ProfiledClass {
         doubleList myList = new doubleList();
         Random random = new Random();
         final int BOUND = 10000;
-        final int MAX = 10000;
+        final int MAX = 3;
 
         //10000 Zufallszahlen in die Liste einfügen
         //Zahlen vom Anfang bis zum Ende ausgeben
@@ -27,9 +27,14 @@ public class main extends ProfiledClass {
 
         }
 
-        //System.out.println("Anzahl der Elemente: " + myList.size());
+        //        myList.insert(4, new listElement(1.5));
+
+        //myList.append(new listElement(1.5));
+        System.out.println("Letztes Element der Liste: " + myList.getLastElement().getObject());
+
+        System.out.println("Anzahl der Elemente: " + myList.size());
         myList.print();
-        //System.out.println("++++++++++");
+        System.out.println("++++++++++");
         myList.printReverse();
     }
 

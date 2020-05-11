@@ -1,4 +1,4 @@
-package uebungen.uebung02_new;
+package uebungen.uebung02_v1;
 
 //Attribute der doppelt verketteten Liste: Erstes und letztes Element
 //Konstruktor (erzeugt eine leere Liste)
@@ -24,10 +24,11 @@ public class doubleList {
 
     //Liefert das erste Element der Liste
     public listElement getFirstEl() { return this.firstEl; }
+    //public listElement getLastEl() { return this.lastEl; }
 
-    //Nicht so richtig hilfreich, weil lastEl nicht gespeichert wird, sondern immer wieder
+    //-> Nicht so richtig hilfreich, weil lastEl nicht gespeichert wird, sondern immer wieder
     //neu berechnet werden muss durch vollständiges Durchlaufen der Liste
-    
+
     public listElement getLastElement () {
 
             listElement aktElement = firstEl; //beim Startelement beginnen
@@ -51,12 +52,16 @@ public class doubleList {
         if(this.firstEl == null) {
 
             this.firstEl = element;
+            this.lastEl = element;
+
         }
 
         else {
+
             lastEl = getLastElement();
             lastEl.next = element;
             element.prev = lastEl;
+
         }
     }
 
@@ -102,8 +107,8 @@ public class doubleList {
     //Fuegt das uebergebene Element am Anfang der Liste ein
     public void prepend(listElement element) {
 
-        if(firstEl == null) {
-            firstEl = element;
+        if(this.firstEl == null) {
+            this.firstEl = element;
         }
 
         else {
@@ -150,6 +155,8 @@ public class doubleList {
         return contains;
     }
 
+
+
     public int size() {
 
         int size = 0;
@@ -177,7 +184,7 @@ public class doubleList {
         //PRINT-METHODEN
         public void print () {
 
-            for (int i = 1; i < this.size(); i++) {
+            for (int i = 0; i < this.size(); i++) {
 
                     System.out.println(this.get(i).getObject());
                 }
@@ -185,7 +192,7 @@ public class doubleList {
 
         public void printReverse () {
 
-            for (int i = this.size()-1; i > 0; i--) {
+            for (int i = this.size(); i > 0; i--) {
 
                 System.out.println(this.get(i).getObject());
             }

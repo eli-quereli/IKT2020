@@ -1,4 +1,4 @@
-package uebungen.uebung02_new;
+package uebungen.uebung02_v1;
 
 //Diese Klasse instanziiert die Listenelement als Objekte
 
