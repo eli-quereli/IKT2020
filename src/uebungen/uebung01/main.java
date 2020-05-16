@@ -2,7 +2,7 @@ package uebungen.uebung01;
 
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
-import uebungen.profiler.Main;
+
 import java.util.Random;
 
 public class main extends ProfiledClass {
