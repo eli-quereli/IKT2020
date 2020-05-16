@@ -26,11 +26,27 @@ public class FIWHashMap {
         FIWHashMapPair pair = new FIWHashMapPair(key, value);
 
         //Erzeuge aus key den hash-Wert i mit Hilfe der Hashfunktion
-        //Parameter für num_entries ist die Anzahl der Buckets im hashField, also die Laenge des Feldes
+        //Parameter (für num_entries) ist die Anzahl der Buckets im hashField, also die Laenge des Feldes
         int i = pair.hash(this.hashField.length);
 
-        //Speichere das Has-Map-Pair an der Position i im hashField
-        this.hashField[i] = pair;
+        //Wenn an diesem Index noch kein Wert hinterlegt ist...
+        if(this.hashField[i] == null) {
+
+            //...speichere das Has-Map-Pair an der Position i im hashField
+            this.hashField[i] = pair;
+        }
+
+        //Andernfalls liegt eine Hash-Kollision vor, dann weitermachen mit open addressing
+        //Es wird nach dem naechstmoeglichen freien Index gesucht
+        else {
+
+            while(this.hashField[i] != null && i < this.hashField.length-1) {
+                i++;
+            }
+
+           this.hashField[i] = pair;
+
+        }
     }
 
 

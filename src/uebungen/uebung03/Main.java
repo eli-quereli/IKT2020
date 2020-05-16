@@ -8,7 +8,7 @@ public class Main extends ProfiledClass {
     public void run() {
 
         //Neue HashMap erzeugen
-        FIWHashMap myHashMap = new FIWHashMap(1024);
+        FIWHashMap myHashMap = new FIWHashMap(32);
         String thisLine ="";
 
         //Datei artikel.csv einlesen mit BufferedReader
