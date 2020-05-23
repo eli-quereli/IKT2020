@@ -14,8 +14,9 @@ public class Element {
 
     public int getData() {
         return this.data;
-
     }
+
+
 
 
 

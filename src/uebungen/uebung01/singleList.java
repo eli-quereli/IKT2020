@@ -138,7 +138,5 @@ public class singleList {
             aktElement = aktElement.getNextElement();
         }
     }
-
-
 }
 
