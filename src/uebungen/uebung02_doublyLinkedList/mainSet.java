@@ -5,16 +5,30 @@ import java.util.Random;
 
 public class mainSet extends ProfiledClass {
 
-    doublyLinkedList myList = new doublyLinkedList();
+    Set s = new Set();
     Random r = new Random();
+    final int MAX = 10000;
 
     public void run() {
 
-        for(int i = 0; i < 10000; i++) {
+        for(int i = 0; i < MAX; i++) {
 
             int x = r.nextInt(10000);
             Element e = new Element(x);
-            myList.append(e);
+            s.add(e);
+        }
+
+        for(int i = 0; i < s.getSize(); i++) {
+
+            System.out.println(s.get(i).getData());
+
+        }
+
+        System.out.println("++++++++++++");
+
+        for(int i = s.getSize()-1; i >= 0; i--) {
+
+            System.out.println(s.get(i).getData());
         }
     }
 

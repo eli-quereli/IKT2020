@@ -1,26 +1,27 @@
 package uebungen.uebung02_doublyLinkedList;
 
-public class doublyLinkedList {
+public class doublyLinkedList_v2 {
 
     private Element first;
     private Element last;
     private int size;
 
-    public doublyLinkedList() {
+    public doublyLinkedList_v2() {
 
         this.first = null;
         this.last = null;
+        this.size = 0;
     }
 
     public Element getFirst() { return this.first; }
     public Element getLast() { return this.last; }
-
+    public int getSize() {return this.size;}
 
     //Ein Element am Anfang einfuegen
     public void prepend(Element e) {
 
         //Falls die Liste leer ist, setze das uebergebene Element als erstes und letztes Element
-        if (this.first == null) {
+        if (this.size == 0) {
 
             this.first = e;
             this.last = e;
@@ -34,6 +35,8 @@ public class doublyLinkedList {
             first.predecessor = e;
             this.first = e;
         }
+
+        this.size++;
     }
 
 
@@ -41,7 +44,7 @@ public class doublyLinkedList {
     public void append(Element e) {
 
         //Falls die Liste leer ist, setze das Element e als erstes und letztes Element der Liste
-        if (this.first == null) {
+        if (this.size == 0) {
 
             this.first = e;
             this.last = e;
@@ -58,6 +61,8 @@ public class doublyLinkedList {
             lastElement.successor = e;
             this.last = e;
         }
+
+        this.size++;
     }
 
     //Fuegt ein Element an einem gegebenen Index ein
@@ -65,7 +70,7 @@ public class doublyLinkedList {
 
         //Falls der Index ausserhalb der Liste liegt
         //Wirf eine Exception
-      if (index >= this.size()) {
+      if (index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -78,7 +83,7 @@ public class doublyLinkedList {
 
         //Falls der Index das Ende der Liste ist
         //Verwende append
-        else if(index == this.size()-1) {
+        else if(index == this.size-1) {
             this.append(e);
       }
 
@@ -91,6 +96,7 @@ public class doublyLinkedList {
             this.get(index-1).successor = e;
             e.predecessor = this.get(index-1);
       }
+        this.size++;
     }
 
     //Loescht ein Element an einem gegebenen Index
@@ -98,7 +104,7 @@ public class doublyLinkedList {
 
         //Falls der Index ausserhalb der Liste liegt
         //Wirf eine Exception
-        if (index >= this.size()) {
+        if (index >= this.size) {
             throw new IndexOutOfBoundsException();
         }
 
@@ -109,7 +115,7 @@ public class doublyLinkedList {
         }
 
 
-        else if (index == this.size()-1) {
+        else if (index == this.size-1) {
 
             this.last.predecessor.successor = null;
             this.last = this.last.predecessor;
@@ -127,27 +133,12 @@ public class doublyLinkedList {
             e.predecessor.successor = e.successor;
             e.successor.predecessor = e.predecessor;
         }
+
+        this.size--;
     }
 
-    //Gibt die Anzahl der Listenelemente zurueck
-    public int size() {
 
-        //Falls die Liste leer ist, gib 0 zurueck
-        if(this.first == null) { return 0; }
 
-        //Sonst: Beginne beim ersten Element, durchlaufe die Liste
-        // und erhoehe size solange es ein Nachfolgelement gibt
-        else {
-            Element e = this.first;
-            int size = 1;
-
-            while (e.successor != null) {
-                size++;
-                e = e.successor;
-            }
-            return size;
-        }
-    }
 
     //Ruft ein Element der Liste an einem bestimmten Index ab
     public Element get(int index) {
@@ -159,13 +150,13 @@ public class doublyLinkedList {
 
         //Falls der gesuchte Index der letzte der Liste ist (entspricht size() = Anzahl Elemente-1),
         // dann gib das letzte Element zurueck
-        else if (index == this.size()-1) {
+        else if (index == this.size-1) {
             return this.last;
         }
 
         //Falls der Index groesser als die Liste ist
         //wird eine IndexOutOfBoundsException
-        else if (index >= this.size()) {
+        else if (index > this.size) {
 
             throw new IndexOutOfBoundsException();
         }
@@ -175,7 +166,7 @@ public class doublyLinkedList {
         else {
 
             Element e = this.first;
-            int center = this.size() / 2;
+            int center = this.size / 2;
 
             //Ist der gegebene Index kleiner als die Mitte der Liste,
             //durchlaufe die Liste von vorne nach hinten
@@ -194,7 +185,7 @@ public class doublyLinkedList {
 
                 e = this.last;
 
-                for(int i = this.size()-1; i > index; i--) {
+                for(int i = this.size-1; i > index; i--) {
                     e = e.predecessor;
                 }
 
@@ -209,7 +200,7 @@ public class doublyLinkedList {
         Element e = first;
 
         //Beginne beim ersten Element und durchlaufe die Liste
-        for(int i = 0; i < this.size(); i++) {
+        for(int i = 0; i < this.size; i++) {
 
                 //Falls das aktuelle Element den Wert von x hat
                 //Gib true zurueck
@@ -232,7 +223,7 @@ public class doublyLinkedList {
     //Gibt die Werte der Liste vom Anfang bis zum Ende aus
     public void printList() {
 
-        for(int i = 0; i < this.size(); i++) {
+        for(int i = 0; i < this.size; i++) {
 
             System.out.println(this.get(i).getData());
 
