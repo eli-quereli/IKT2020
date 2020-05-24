@@ -1,5 +1,4 @@
-package uebungen.uebung01;
-
+package uebungen.uebung01_v2_singlyLinkedList;
 
 //Diese Klasse instanziiert die Listenelement als Objekte
 //Die Elemente speichern zwei Werte:
@@ -26,10 +25,7 @@ public class listElement {
         this.nextElement = nextElement;
     }
 
-    public listElement getNextElement() {
-
-        return nextElement;
-    }
+    public listElement getNextElement() { return nextElement; }
 
     public Object getObject() {
         return obj;

@@ -1,15 +1,20 @@
-package uebungen.uebung02_v3;
+package uebungen.uebung02_doublyLinkedList;
 
 public class doublyLinkedList {
 
     private Element first;
     private Element last;
+    private int size;
 
     public doublyLinkedList() {
 
         this.first = null;
         this.last = null;
     }
+
+    public Element getFirst() { return this.first; }
+    public Element getLast() { return this.last; }
+
 
     //Ein Element am Anfang einfuegen
     public void prepend(Element e) {
@@ -122,11 +127,7 @@ public class doublyLinkedList {
             e.predecessor.successor = e.successor;
             e.successor.predecessor = e.predecessor;
         }
-
-
     }
-
-
 
     //Gibt die Anzahl der Listenelemente zurueck
     public int size() {
@@ -169,19 +170,38 @@ public class doublyLinkedList {
             throw new IndexOutOfBoundsException();
         }
 
-        //Sonst: Beginne beim ersten Element und durchlaufe die Liste,
+        //Sonst: Durchlaufe die Liste,
         // bis du beim gesuchten Index angekommen bist
-        //Gehe dabei jeweils vom aktuellen Element zu dessen Nachfolger-Element
         else {
-            Element e = first;
 
-            for(int i = 0; i < index; i++) {
-                e = e.successor;
-        }
+            Element e = this.first;
+            int center = this.size() / 2;
+
+            //Ist der gegebene Index kleiner als die Mitte der Liste,
+            //durchlaufe die Liste von vorne nach hinten
+           // Beginne beim ersten Element und gehe von dort jeweils zum naechsten Nachfolger
+            if(index <= center) {
+
+                for(int i = 0; i < index; i++) {
+                    e = e.successor;
+                }
+            }
+
+            //Sonst: Der Index ist groesser als die Mitte und befindet sich damit im hinteren Teil der Liste
+            //Durchlaufe die Liste von hinten nach vorne
+            //Beginne beim letzten Element und gehe von dort jeweils zum naechsten Vorgaenger
+            else {
+
+                e = this.last;
+
+                for(int i = this.size()-1; i > index; i--) {
+                    e = e.predecessor;
+                }
+
+            }
             return e;
         }
     }
-
 
     //Prueft, ob eine Zahl x in der Liste enthalten ist
     public boolean contains(int x) {
@@ -217,7 +237,6 @@ public class doublyLinkedList {
             System.out.println(this.get(i).getData());
 
         }
-
 
     }
 }

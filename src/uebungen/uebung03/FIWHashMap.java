@@ -1,5 +1,4 @@
 package uebungen.uebung03;
-import uebungen.uebung01.singleList;
 
 public class FIWHashMap {
 

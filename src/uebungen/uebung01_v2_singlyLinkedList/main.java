@@ -1,8 +1,7 @@
-package uebungen.uebung01;
+package uebungen.uebung01_v2_singlyLinkedList;
 
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
-
 import java.util.Random;
 
 public class main extends ProfiledClass {
@@ -29,6 +28,13 @@ public class main extends ProfiledClass {
 
         myList.print();
         myList.printReverse(MAX);
+
+        //myList.prepend(new listElement(1));
+
+       myList.print();
+        myList.printReverse(MAX);
+
+
     }
 
     public static void main(String[] args) {

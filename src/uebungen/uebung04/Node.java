@@ -1,5 +1,5 @@
 package uebungen.uebung04;
-import uebungen.uebung01.singleList;
+import uebungen.uebung01_singlyLinkedList.singleList;
 
 public class Node {
 

@@ -1,4 +1,4 @@
-package uebungen.uebung01_v2;
+package uebungen.uebung01_v2_singlyLinkedList;
 
 //Konstruktur
 //prepend = füge ein Element vor das Startelement ein

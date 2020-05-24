@@ -1,4 +1,4 @@
-package uebungen.uebung02_v3;
+package uebungen.uebung02_doublyLinkedList;
 
 
 public class Element {
