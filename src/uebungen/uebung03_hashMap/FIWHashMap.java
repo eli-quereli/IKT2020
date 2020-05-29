@@ -1,4 +1,4 @@
-package uebungen.uebung03;
+package uebungen.uebung03_hashMap;
 
 public class FIWHashMap {
 

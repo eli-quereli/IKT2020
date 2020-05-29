@@ -1,4 +1,4 @@
-package uebungen.uebung03;
+package uebungen.uebung03_hashMap;
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
 import java.io.*;

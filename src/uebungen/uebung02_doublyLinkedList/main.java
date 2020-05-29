@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class main extends ProfiledClass {
 
-    doublyLinkedList_v2 myList = new doublyLinkedList_v2();
+    doublyLinkedList myList = new doublyLinkedList();
     Random r = new Random();
     final int MAX = 10000;
 

@@ -1,4 +1,4 @@
-package uebungen.uebung04;
+package uebungen.uebung04_directedGraph;
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
 

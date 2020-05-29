@@ -1,6 +1,6 @@
 package uebungen.uebung02_doublyLinkedList;
 
-public class Set extends doublyLinkedList_v2 {
+public class Set extends doublyLinkedList {
 
     int size = 0;
 

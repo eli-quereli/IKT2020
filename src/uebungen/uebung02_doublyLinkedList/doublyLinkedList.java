@@ -1,12 +1,12 @@
 package uebungen.uebung02_doublyLinkedList;
 
-public class doublyLinkedList_v2 {
+public class doublyLinkedList {
 
     private Element first;
     private Element last;
     private int size;
 
-    public doublyLinkedList_v2() {
+    public doublyLinkedList() {
 
         this.first = null;
         this.last = null;
