@@ -6,6 +6,7 @@ import java.util.Random;
 public class mainSet extends ProfiledClass {
 
     Set s = new Set();
+
     Random r = new Random();
     final int MAX = 10000;
 
@@ -24,13 +25,13 @@ public class mainSet extends ProfiledClass {
 
         }
 
-        System.out.println("++++++++++++");
-
         for(int i = s.getSize()-1; i >= 0; i--) {
 
             System.out.println(s.get(i).getData());
         }
+
     }
+
 
     public static void main(String[] args) {
 
@@ -38,7 +39,4 @@ public class mainSet extends ProfiledClass {
         profiler.start();
         profiler.printResults();
     }
-
-
-
 }

@@ -2,8 +2,6 @@ package uebungen.uebung02_doublyLinkedList;
 
 public class Set extends doublyLinkedList {
 
-    int size = 0;
-
    public Set() {
        super();
 
@@ -11,15 +9,9 @@ public class Set extends doublyLinkedList {
 
     public boolean add(Element e) {
 
-       boolean addElement = true;
-
        if(!(this.contains(e.getData()))) {
 
-           if(this.getFirst() == null) {
-               this.prepend(e);
-           }
-
-           if(e.getData() < this.getFirst().getData()) {
+           if(this.getSize() == 0 || e.getData() < this.getFirst().getData()) {
                this.prepend(e);
            }
 
@@ -28,23 +20,40 @@ public class Set extends doublyLinkedList {
            }
 
            else {
-               //this.insert(e, this.findInsertPosition(e));
+               this.insert(e, this.findInsertPosition(e));
            }
 
-           this.size++;
+           return true;
        }
 
+      return false;
+   }
 
-       else {
-           addElement = false;
 
-       }
-
-       return addElement;
-
+    @Override
+    public Element getFirst() {
+        return super.getFirst();
     }
 
+    @Override
+    public Element getLast() {
+        return super.getLast();
+    }
 
+    @Override
+    public int getSize() {
+        return super.getSize();
+    }
+
+    @Override
+    public Element get(int index) {
+        return super.get(index);
+    }
+
+    @Override
+    public boolean contains(int x) {
+        return super.contains(x);
+    }
 
     @Override
     public void prepend(Element e) {
@@ -64,39 +73,55 @@ public class Set extends doublyLinkedList {
     @Override
     public void remove(int index) {
         super.remove(index);
-        this.size--;
     }
-
 
     //Sucht die richtige Einfuegeposition fuer ein Element in der sortierten Menge
     public int findInsertPosition(Element e) {
 
-       int center = this.size / 2;
-       int i = -1;
+        int i = 0;
+
+        while (this.get(i).getData() < e.getData()) {
+            i++;
+        }
+
+        return i;
+    }
+
+/*        for(int i = 0; i < this.getSize(); i++) {
+
+            if(get(i).getData() > e.getData()) {
+
+                return i-1;
+            }
+        }
+        return this.getSize()-1;
+
+
+    }
+
+
+       /*int center = this.size / 2;
 
        if(get(center).getData() > e.getData()) {
 
-           Element x = this.getFirst();
+           for(int i = 0; i < center; i++) {
 
-           for(i = 0; i < center; i++) {
-
-               while(x.getData() < e.getData())
-               x = x.successor;
+               if(this.get(i).getData() > e.getData())
+                   return i;
            }
        }
 
        else {
-           Element x = this.getLast();
 
-           for(i = size; i > center; i--) {
+           for(int i = size-1; i >= center; i--) {
 
-               while(x.getData() > e.getData()) {
-                   x = x.predecessor;
+               if(this.get(i).getData() < e.getData()) {
+                  return i;
                }
            }
        }
-       return i;
-    }
+       return -1;
+    }*/
 
     @Override
     public void printList() {

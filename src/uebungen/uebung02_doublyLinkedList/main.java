@@ -11,20 +11,19 @@ public class main extends ProfiledClass {
 
     public void run() {
 
-        for(int i = 0; i < MAX; i++) {
+       for(int i = 0; i < MAX; i++) {
 
             int x = r.nextInt(10000);
             Element e = new Element(x);
             myList.append(e);
         }
 
-        for(int i = 0; i < MAX; i++) {
+
+        for(int i = 0; i < myList.getSize(); i++) {
 
             System.out.println(myList.get(i).getData());
 
         }
-
-        //System.out.println("++++++++++++");
 
         for(int i = MAX-1; i >= 0; i--) {
 
@@ -37,10 +36,6 @@ public class main extends ProfiledClass {
         Profiler profiler = new Profiler(main.class);
         profiler.start();
         profiler.printResults();
-
-
-
-
 
     }
 
