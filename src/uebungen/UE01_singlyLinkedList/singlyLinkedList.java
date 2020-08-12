@@ -80,7 +80,7 @@ public class singlyLinkedList {
 
         if (this.isEmpty()) {
             throw new NullPointerException();
-        } else if (index < 0 || index > this.getSize()) {
+        } else if (index < 0 || index > this.getSize()-1) {
             throw new IndexOutOfBoundsException();
         } else {
             while (position < index && e.hasNext()) {

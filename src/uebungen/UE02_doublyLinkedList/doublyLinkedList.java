@@ -12,9 +12,8 @@ g) size - gibt aus, wie viele Elemente in der Liste enthalten sind
 
  */
 
-
-// divide and conquer bei get() implementieren
-// Element last implementieren?
+//contains mit get() implementieren
+//alles nochmal checken
 
 public class doublyLinkedList {
 
@@ -57,9 +56,7 @@ public class doublyLinkedList {
             this.last = this.first;
             this.first.successor = this.last;
             this.last.predecessor = this.first;
-        }
-        
-        else {
+        } else {
 
             Element last = this.last;
             last.successor = e;
@@ -68,13 +65,6 @@ public class doublyLinkedList {
         }
         this.size++;
     }
-
-
-
-
-
-
-
 
     // c) insert - Element an einer angegebenen Position einzufügen
     public void insert(int index, Element e) {
@@ -100,21 +90,43 @@ public class doublyLinkedList {
     // d) get - ein Element an einer gegebenen Position abrufen
     public Element get(int index) throws NullPointerException {
 
-        Element e = this.first;
-        int position = 0;
-
         if (this.isEmpty()) {
             throw new NullPointerException();
-        } else if (index < 0 || index > this.getSize()) {
+        } else if (index < 0 || index > this.getSize() - 1) {
             throw new IndexOutOfBoundsException();
         } else {
-            while (position < index && e.hasNext()) {
-                e = e.getSuccessor();
-                position++;
-            }
-            return e;
-        }
+            int center = this.getSize() / 2;
 
+            // -> linke haelfte der liste durchsuchen mit first & successor
+
+            if (index <= center) {
+
+                Element e = this.first;
+
+                for (int i = 0; i < index; i++) {
+
+                    e = e.successor;
+                }
+
+                return e;
+            }
+
+            // index > center -> rechte haelfte der liste durchsuchen mit last & predecessor
+            else {
+
+                Element e = this.last;
+
+                for (int i = this.getSize() - 1; i > index; i--) {
+
+                    e = e.predecessor;
+
+                }
+
+                return e;
+
+            }
+
+        }
     }
 
 
