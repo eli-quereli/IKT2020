@@ -17,7 +17,10 @@ public class singlyLinkedList {
         if (this.isEmpty()) {
             this.first = e;
             e.successor = null;
-        } else {
+        }
+
+        else {
+
             e.successor = this.first;
             this.first = e;
         }
@@ -63,9 +66,10 @@ public class singlyLinkedList {
 
             temp1.successor = e;
             e.successor = temp2;
+            this.size++;
         }
 
-        this.size++;
+
     }
 
     // d) get - ein Element an einer gegebenen Position abrufen

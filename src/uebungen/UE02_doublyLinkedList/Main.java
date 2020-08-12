@@ -1,4 +1,4 @@
-package uebungen.UE01_singlyLinkedList;
+package uebungen.UE02_doublyLinkedList;
 
 import de.htwberlin.fiw.profiler.ProfiledClass;
 import de.htwberlin.fiw.profiler.Profiler;
@@ -9,7 +9,7 @@ public class Main extends ProfiledClass {
 
     public void run() {
 
-        singlyLinkedList myList = new singlyLinkedList();
+        doublyLinkedList myList = new doublyLinkedList();
         Random random = new Random();
         final int BOUND = 10000;
         final int MAX = 10000;
@@ -27,8 +27,7 @@ public class Main extends ProfiledClass {
         //Zahlen vom Ende bis zum Anfang ausgeben
         myList.printReverse();
 
-        //System.out.println("number of elements: " + myList.getSize());
-
+        System.out.println("Number of elements: " + myList.getSize());
     }
 
     public static void main(String[] args) {
@@ -41,3 +40,4 @@ public class Main extends ProfiledClass {
     }
 
 }
+
