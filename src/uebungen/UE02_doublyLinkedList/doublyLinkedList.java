@@ -19,13 +19,13 @@ g) size - gibt aus, wie viele Elemente in der Liste enthalten sind
 public class doublyLinkedList {
 
     private Element first;
-    // private Element last;
+    private Element last;
     private int size; //number of elements in the list; is increased if an element is appended, prepended, or inserted; and decreased if an element is removed
 
 
     public doublyLinkedList() {
         this.first = null;
-        // this.last = null;
+        this.last = null;
         this.size = 0;
     }
 
@@ -35,7 +35,9 @@ public class doublyLinkedList {
 
         if (this.isEmpty()) {
             this.first = e;
-            e.successor = null;
+            this.last = this.first;
+            this.first.successor = this.last;
+            this.last.predecessor = this.first;
 
         } else {
             e.successor = this.first;
@@ -52,19 +54,26 @@ public class doublyLinkedList {
         if (this.isEmpty()) {
 
             this.first = e;
-            e.successor = null;
+            this.last = this.first;
+            this.first.successor = this.last;
+            this.last.predecessor = this.first;
+        }
+        
+        else {
 
-        } else {
-
-            Element last = this.get(size - 1);
+            Element last = this.last;
             last.successor = e;
             e.predecessor = last;
-
+            this.last = e;
         }
-
         this.size++;
-
     }
+
+
+
+
+
+
 
 
     // c) insert - Element an einer angegebenen Position einzufügen
