@@ -25,13 +25,8 @@ public class Main extends ProfiledClass {
         myList.print();
 
         //Zahlen vom Ende bis zum Anfang ausgeben
-        //myList.printReverse();
+        myList.printReverse();
 
-        int size = myList.getSize();
-
-        System.out.println("Number of elements: " + myList.getSize());
-        System.out.println("Last element: " + myList.get(size-1).getValue());
-        System.out.println("First element: " + myList.get(0).getValue());
     }
 
     public static void main(String[] args) {

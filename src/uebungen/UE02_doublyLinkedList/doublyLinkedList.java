@@ -12,7 +12,6 @@ g) size - gibt aus, wie viele Elemente in der Liste enthalten sind
 
  */
 
-//contains mit get() implementieren
 //alles nochmal checken
 
 public class doublyLinkedList {
@@ -116,7 +115,7 @@ public class doublyLinkedList {
 
                 Element e = this.last;
 
-                for (int i = this.getSize() - 1; i > index; i--) {
+                for (int i = this.getSize() -1; i > index; i--) {
 
                     e = e.predecessor;
 
@@ -159,21 +158,17 @@ public class doublyLinkedList {
             return false;
         } else {
 
-            Element current = this.first;
+            for (int i = 0; i < this.getSize(); i++) {
 
-            while (current.hasNext()) {
-
+                Element current = this.get(i);
                 if (current.equals(e)) {
                     return true;
-                } else {
-                    current = current.successor;
                 }
             }
 
             return false;
         }
     }
-
 
     //returns true if list is empty, false else
     public boolean isEmpty() {
