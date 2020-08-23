@@ -6,7 +6,6 @@ public class Element {
     Element predecessor;
     Element successor;
 
-
     public Element(int value) {
         this.value = value;
         this.successor = null;
@@ -17,13 +16,16 @@ public class Element {
         return value;
     }
 
-    public Element getSuccessor() {
-        return successor;
-    }
+    public Element getSuccessor() { return successor; }
 
     public Element getPredecessor() {
         return predecessor;
     }
+
+    public void setPredecessor(Element predecessor) { this.predecessor = predecessor; }
+
+    public void setSuccessor(Element successor) { this.successor = successor; }
+
 
     public boolean hasNext() { return this.getSuccessor() != null; }
 

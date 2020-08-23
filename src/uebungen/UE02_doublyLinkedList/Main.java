@@ -9,23 +9,35 @@ public class Main extends ProfiledClass {
 
     public void run() {
 
-        doublyLinkedList myList = new doublyLinkedList();
+        Set mySet = new Set();
+
+       // doublyLinkedList myList = new doublyLinkedList();
         Random random = new Random();
-        final int BOUND = 10000;
-        final int MAX = 10000;
+        final int BOUND = 10;
+        final int MAX = 10;
 
 
         //10000 Zufallszahlen in die Liste einfügen
-        for (int i = 0; i < MAX; i++) {
+        /*for (int i = 0; i < MAX; i++) {
 
-            myList.append(new Element(random.nextInt(BOUND)));
-        }
+            mySet.add(new Element(random.nextInt(BOUND)));
+            //myList.append(new Element(random.nextInt(BOUND)));
+        }*/
 
         //Zahlen vom Anfang bis zum Ende ausgeben
-        myList.print();
+        //myList.print();
+
+        for (int i = 10; i > 0; i--) {
+
+            mySet.add(new Element(i));
+
+        }
+
+        mySet.print();
 
         //Zahlen vom Ende bis zum Anfang ausgeben
-        myList.printReverse();
+        //myList.printReverse();
+        //mySet.printReverse();
 
     }
 

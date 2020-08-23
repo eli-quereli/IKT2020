@@ -12,12 +12,12 @@ g) size - gibt aus, wie viele Elemente in der Liste enthalten sind
 
  */
 
-//alles nochmal checken
+//set implementieren
 
 public class doublyLinkedList {
 
-    private Element first;
-    private Element last;
+    protected Element first;
+    protected Element last;
     private int size; //number of elements in the list; is increased if an element is appended, prepended, or inserted; and decreased if an element is removed
 
 
